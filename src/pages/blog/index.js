@@ -24,7 +24,7 @@ export default class BlogPage extends Component {
                 <div className='column is-10 is-offset-1'>
                   <div className='section'>
                     <h1 className='title'>
-                                            Blog
+                                            News
                     </h1>
                   </div>
                 </div>
