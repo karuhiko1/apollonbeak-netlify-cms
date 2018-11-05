@@ -39,9 +39,20 @@ export const ContactPageTemplate = ({
       </section>
       <section className='section'>
         <div className='container'>
-          {contacts.map((contact, id) =>
-            <Contact key={id} email={contact.email} description={contact.description} />
-          )}
+          <form name="contactform" netlify>
+            <p>
+              <label>Your Name: <input type="text" name="name"/></label>
+            </p>
+            <p>
+              <label>Your Email: <input type="email" name="email"/></label>
+            </p>
+            <p>
+              <label>Message: <textarea name="message"></textarea></label>
+            </p>
+            <p>
+              <button type="submit">Send</button>
+            </p>
+          </form>
         </div>
       </section>
     </div>
