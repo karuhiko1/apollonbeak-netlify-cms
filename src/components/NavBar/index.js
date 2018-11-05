@@ -4,12 +4,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const NavBar = () => {
+const NavBar = (data) => {console.log(data);
   return (
     <nav className='navbar is-fixed-top' aria-label='main navigation'>
       <div className='navbar-brand'>
         <Link to='/' className='navbar-item'>
-                    ApollonBeak
+          <img src={data.logoImg} />
         </Link>
         <button className='button navbar-burger' data-target='navMenu'>
           <span />

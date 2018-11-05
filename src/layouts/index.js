@@ -9,20 +9,37 @@ import Footer from '../components/Footer'
 import './styles.sass'
 import config from '../../meta/config'
 
-const TemplateWrapper = ({children}) => (
-  <div>
-    <Helmet>
-      <title>{config.siteTitle}</title>
-      <meta name='description' content={config.siteDescription} />
-    </Helmet>
-    <NavBar />
-    <div>{children()}</div>
-    <Footer />
-  </div>
-)
+export default class TemplateWrapper extends React.Component {
+  static propTypes = {
+    children: PropTypes.func,
+  }
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  render() {
+
+    return(
+      <div>
+        <Helmet>
+          <title>{config.siteTitle}</title>
+          <meta name='description' content={config.siteDescription} />
+        </Helmet>
+        <NavBar logoImg={this.props.data.file.childImageSharp.original.src}/>
+        <div>{this.props.children()}</div>
+        <Footer />
+      </div>
+    )
+  }   
 }
 
-export default TemplateWrapper
+export const layoutQuery = graphql`
+  query layoutQuery {
+    file(relativePath: { eq: "apobi.png" }) {
+      childImageSharp{
+        original {
+          width
+          height
+          src
+        }
+      }
+    }
+  }
+`
