@@ -67,6 +67,6 @@ testimonials:
       dignissim ligula.  Lorem ipsum dolor sit amet, consectetur adipiscing
       elit.
 meta_title: ApollonBeak | 芸能、レコード事業、映像制作、マーケティングコンサルタントのApollonBeak
-meta_description: 芸能、レコード事業、映像制作、マーケティングコンサルタントのApollonBeak
+meta_description: 芸能、レコード事業、映像制作、マーケティングコンサルタントのApollonBeak　トップページ
 ---
 
