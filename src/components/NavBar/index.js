@@ -9,7 +9,7 @@ const NavBar = () => {
     <nav className='navbar is-fixed-top' aria-label='main navigation'>
       <div className='navbar-brand'>
         <Link to='/' className='navbar-item'>
-                    Gatsby Starter Business
+                    ApollonBeak
         </Link>
         <button className='button navbar-burger' data-target='navMenu'>
           <span />
@@ -19,15 +19,15 @@ const NavBar = () => {
       </div>
       <div className='navbar-menu' id='navMenu'>
         <div className='navbar-start'>
-          <Link className='navbar-item' to='/pricing'>
-                        Pricing
+          <Link className='navbar-item is-tab is-size-7' to='/about'>
+                        会社概要
           </Link>
-          <Link className='navbar-item' to='/about'>
-                        About
+          <Link className='navbar-item is-tab is-size-7' to='/blog'>
+                        ニュース
           </Link>
-          <Link className='navbar-item' to='/blog'>
-                        Blog
-          </Link>
+          <a className='navbar-item is-tab is-size-7' href='https://apollonbeak.stores.jp/' target="__blank">
+                        ストア
+          </a>
         </div>
         <div className='navbar-end'>
           <div className='navbar-item'>

@@ -4,6 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import NewsFeed from '../components/NewsFeed'
 import Offerings from '../components/Offerings'
 import Testimonials from '../components/Testimonials'
 
@@ -15,14 +16,16 @@ export const HomePageTemplate = ({
   meta_title,
   meta_description,
   testimonials,
+  newsList,
+  imgUrl
 }) => (
   <div>
     <Helmet>
       <title>{meta_title}</title>
       <meta name='description' content={meta_description} />
     </Helmet>
-    <section className='hero is-primary is-bold'>
-      <div className='hero-body'>
+    <section className='hero is-primary is-bold' style={{width: "100%", paddingTop:"60%", backgroundImage: `url(${imgUrl})`, color:"black"}}>
+      {/*<div className='hero-body'>
         <div className='container'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
@@ -34,25 +37,46 @@ export const HomePageTemplate = ({
             </div>
           </div>
         </div>
-      </div>
+      </div>*/}
     </section>
     <section className='section section--gradient'>
       <div className='container'>
 
         <div className='section'>
-          <div className='columns'>
+          <div className='columns is-centered'>
             <div className='column is-10 is-offset-1'>
               <div className='content'>
                 <div>
-                  <h3 className='has-text-weight-semibold is-size-2'>
-                    {heading}
+                  <h3 className='title has-text-weight-semibold is-size-2'>
+                    NEWS
                   </h3>
-                  <p>{description}</p>
                 </div>
-                <Offerings gridItems={offerings.blurbs} />
+                <NewsFeed newsList={newsList}/>
+                {/*<Offerings gridItems={offerings.blurbs} />
                 <h2 className='has-text-weight-semibold is-size-2'>Testimonials</h2>
-                <Testimonials testimonials={testimonials} />
+                <Testimonials testimonials={testimonials} />*/}
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='section'>
+        <div className='columns is-centered'>
+          <div className='column is-10 is-offset-1'>
+            <div className='content'>
+              <div>
+                <h3 className='title has-text-weight-semibold is-size-2'>
+                  SERVICE
+                </h3>
+              </div>
+              <ul>
+                <li>経営コンサルタント事業</li>
+                <li>マーケティングコンサルタント事業</li>
+                <li>インフルエンサーマーケティング事業</li>
+                <li>レコード事業</li>
+                <li>映像制作事業</li>
+                <li>グッズ制作事業</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -71,11 +95,13 @@ HomePageTemplate.propTypes = {
     blurbs: PropTypes.array,
   }),
   testimonials: PropTypes.array,
-
+  newsList: PropTypes.array,
+  imgUrl: PropTypes.string,
 }
 
 const HomePage = ({data}) => {
   const {frontmatter} = data.markdownRemark
+  
 
   return (
     <HomePageTemplate
@@ -86,6 +112,8 @@ const HomePage = ({data}) => {
       description={frontmatter.description}
       offerings={frontmatter.offerings}
       testimonials={frontmatter.testimonials}
+      newsList={data.allMarkdownRemark.edges}
+      imgUrl={data.file.childImageSharp.original.src}
     />
   )
 }
@@ -118,6 +146,32 @@ export const pageQuery = graphql`
         testimonials {
           author
           quote
+        }
+      }
+    }
+    allMarkdownRemark(
+      limit: 20
+      filter: {frontmatter: {tags: {ne: null}}}
+      sort: {fields: [frontmatter___date], order: DESC }
+    ){
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            tags
+          }
+        }
+      }
+    }
+    file(relativePath: { eq: "057.jpg" }) {
+      childImageSharp{
+        original {
+          width
+          height
+          src
         }
       }
     }
