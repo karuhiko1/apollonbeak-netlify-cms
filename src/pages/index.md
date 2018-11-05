@@ -1,7 +1,7 @@
 ---
 templateKey: home-page
 title: ApollonBeak
-heading: ApollonBeak
+heading: 芸能、レコード事業、映像制作、マーケティングコンサルタントのApollonBeak
 description: 芸能、レコード事業、映像制作、マーケティングコンサルタントのApollonBeak
 offerings:
   blurbs:
