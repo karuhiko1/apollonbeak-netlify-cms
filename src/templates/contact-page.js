@@ -28,9 +28,6 @@ export const ContactPageTemplate = ({
                   <h1 className='title'>
                     {title}
                   </h1>
-                  <h2 className='subtitle'>
-                    {subtitle}
-                  </h2>
                 </div>
               </div>
             </div>
@@ -39,20 +36,16 @@ export const ContactPageTemplate = ({
       </section>
       <section className='section'>
         <div className='container'>
-          <form name="contactform" netlify>
-            <p>
-              <label>Your Name: <input type="text" name="name"/></label>
-            </p>
-            <p>
-              <label>Your Email: <input type="email" name="email"/></label>
-            </p>
-            <p>
-              <label>Message: <textarea name="message"></textarea></label>
-            </p>
-            <p>
-              <button type="submit">Send</button>
-            </p>
-          </form>
+          <div className='columns is-centered'>
+            <div className='column is-half is-offset-1'>
+              <form name="contactform" netlify>
+                <input className="input" type="text" placeholder="Your Name" />
+                <input className="input" type="email" placeholder="Your Email" />
+                <textarea className="textarea" placeholder="Message"></textarea>
+                <button type="submit" className='button is-primary'>送信</button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </div>
