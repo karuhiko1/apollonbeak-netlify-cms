@@ -3,7 +3,7 @@ templateKey: article-page
 title: '2018.11.11(日) [ You can do it ]  at BAN x KARA ZONE-HS'
 slug: you-can-do-it
 date: '2018-11-09T12:00:00+09:00'
-cover: /img/products-grid3.jpg
+cover: /img/181111-ycdi-212x300.jpg
 tags:
   - ライブ
   - イベント
