@@ -4,7 +4,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const NavBar = (data) => {console.log(data);
+const NavBar = (data) => {
   return (
     <nav className='navbar is-fixed-top' aria-label='main navigation'>
       <div className='navbar-brand'>
