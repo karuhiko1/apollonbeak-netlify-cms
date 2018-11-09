@@ -38,7 +38,7 @@ export const ContactPageTemplate = ({
         <div className='container'>
           <div className='columns is-centered'>
             <div className='column is-half is-offset-1'>
-              <form name="contactform" data-netlify="true">
+              <form name="contactform" method="POST" data-netlify="true">
                 <input className="input" name="name" type="text" placeholder="Your Name" />
                 <input className="input" name="email" type="email" placeholder="Your Email" />
                 <textarea className="textarea" name="message" placeholder="Message"></textarea>
