@@ -1,21 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'gatsby-link'
 
 export const Topic = ({
   title,
+  slug,
   date,
   tags
 }) => (
-  <div>
-    {date}
-    <h3>{title}</h3>
-    {tags.toString()}
-  </div>
-  
+  <Link to={`/blog/${slug}/`}>
+      <div>
+      {date}
+      <h3>{title}</h3>
+      {tags.toString()}
+    </div>
+  </Link>
 )
 
 Topic.propTypes = {
   title: PropTypes.string,
+  slug: PropTypes.string,
   date: PropTypes.string,
   tags: PropTypes.array
 }
@@ -28,6 +32,7 @@ class NewsFeed extends React.Component {
           <Topic
             key={news.node.id}
             title={news.node.frontmatter.title}
+            slug={news.node.frontmatter.slug}
             date={news.node.frontmatter.date}
             tags={news.node.frontmatter.tags}
           />

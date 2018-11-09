@@ -160,6 +160,7 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
+            slug
             date
             tags
           }
