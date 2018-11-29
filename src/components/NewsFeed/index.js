@@ -27,7 +27,7 @@ Topic.propTypes = {
 class NewsFeed extends React.Component {
   createNewsFeed = () => {
     const cmpArr = [];
-    this.props.newsList.forEach(news =>{console.log(news)
+    this.props.newsList.forEach(news =>{
       cmpArr.push(
           <Topic
             key={news.node.id}
@@ -38,7 +38,7 @@ class NewsFeed extends React.Component {
           />
       );
     });
-    console.log(this.props.newsList[0].node.frontmatter.date);
+    
     return cmpArr;
   }
 
